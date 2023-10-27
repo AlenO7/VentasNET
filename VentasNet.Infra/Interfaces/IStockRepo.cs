@@ -1,0 +1,24 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using VentasNet.Entity.Models;
+using VentasNet.Infra.DTO.Request;
+using VentasNet.Infra.DTO.Response;
+
+namespace VentasNet.Infra.Interfaces
+{
+    public interface IStockRepo
+    {
+        public StockResponse AddStock(StockReq stock);
+        public StockResponse UpdateStock(StockReq stock);
+        public StockResponse Delete(StockReq stock);
+
+        public List<StockReq> ListadoStock();
+
+
+        public Stock GetStockIdProducto(int idProducto);
+        
+    }
+}

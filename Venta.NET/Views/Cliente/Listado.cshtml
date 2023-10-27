@@ -1,0 +1,52 @@
+﻿@using VentasNet.Infra.DTO.Request
+@model IEnumerable<ClienteReq> //llamamos al objeto Cliente
+
+<h2>Listado de Clientes</h2>
+
+
+<table class="table table-dark table-hover">
+    
+
+    <thead>
+        <tr>
+            <!--ARMO EL ENCABEZADO DE MI TABLA DE CLIENTES-->
+            
+            <th>@Html.DisplayNameFor(model => model.RazonSocial)</th>
+            <th>@Html.DisplayNameFor(model => model.Cuit)</th>
+            <th>@Html.DisplayNameFor(model => model.Domicilio)</th>
+            <th>@Html.DisplayNameFor(model => model.Email)</th>
+            
+            <th>@Html.Label("Acciones")</th>
+        </tr>
+    </thead>
+
+    @{ //Aca escribo codigo c# 
+
+        //recorro la lista de clientes usando el foreach
+        if(ViewBag.Cliente != null)//VERIFICO QUE NO VENGA NULO
+        {
+            foreach (ClienteReq cliente in ViewBag.Cliente)
+            {
+                <tr>
+                     
+                    <td>@cliente.RazonSocial</td>
+                    <td>@cliente.Cuit</td>
+                    <td>@cliente.Domicilio</td>
+                    <td>@cliente.Email</td>
+                    
+                    <td>
+                             <!-- NOMBRE DEL BOTON/METODO DONDE APUNTA-->
+                         @Html.ActionLink("Editar", "ModificarCliente","Cliente",  cliente , new{ @class="btn btn-primary" })
+
+                        @Html.ActionLink("Borrar", "Delete", "Cliente" , cliente ,  new{ @class="btn btn-danger" })
+                    </td>
+                </tr>
+
+            }
+            
+        }
+      
+
+    }
+
+</table>

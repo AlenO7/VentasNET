@@ -1,0 +1,55 @@
+﻿@model MetodoPagoReq
+@{
+    ViewData["Title"] = "Listado";
+}
+
+<h1>Listado</h1>
+
+
+<table class="table table-dark table-hover">
+
+
+    <thead>
+        <tr>
+            <!--ARMO EL ENCABEZADO DE MI TABLA DE CLIENTES-->
+
+            <th>@Html.DisplayNameFor(model => model.MetodoPago)</th>
+            <th>@Html.DisplayNameFor(model => model.Estado)</th>
+
+
+            <th>@Html.Label("Acciones")</th>
+        </tr>
+    </thead>
+
+    @{
+        //Aca escribo codigo c#
+
+        //recorro la lista de clientes usando el foreach
+        if (ViewBag.MetodoPago != null)//VERIFICO QUE NO VENGA NULO
+        {
+            foreach (MetodoPagoReq metodo in ViewBag.MetodoPago)
+            {
+                <tr>
+
+                    <td>@metodo.MetodoPago</td>
+                    <td>@metodo.Estado</td>
+
+
+                    <td>
+                        <!-- NOMBRE DEL BOTON/METODO DONDE APUNTA-->
+                        @Html.ActionLink("Editar", "ModificarMetodoPago","MetodoPago",  metodo , new{ @class="btn btn-primary" })
+
+                        @Html.ActionLink("Borrar", "Delete", "MetodoPago" , metodo ,  new{ @class="btn btn-danger" })
+                    </td>
+                </tr>
+
+            }
+
+        }
+
+
+    }
+
+</table>
+
+

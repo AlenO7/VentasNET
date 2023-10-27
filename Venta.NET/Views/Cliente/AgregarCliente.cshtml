@@ -1,0 +1,46 @@
+﻿
+@using VentasNet.Infra.DTO.Request
+@model ClienteReq
+
+
+
+
+<h2>Agregar Cliente</h2>
+
+
+@using (Html.BeginForm("AgregarCliente", "Cliente", FormMethod.Post))
+{
+    <div class="container">       
+       <div class="panel-body">
+           @*  <div class="form-group col-4 ">
+                @Html.LabelFor(x=> x.Id)
+                @Html.TextBoxFor(model => model.Id, new {@class="form-control"})
+            </div> *@
+           <div class="form-group col-4 ">
+                @Html.LabelFor(x=> x.RazonSocial)
+                @Html.TextBoxFor(model => model.RazonSocial, new {@class="form-control"})
+            </div>
+            <div class="form-group col-4">
+                @Html.LabelFor(x=> x.Cuit)
+                @Html.TextBoxFor(model => model.Cuit, new {@class="form-control"})
+            </div>
+            <div class="form-group col-4">
+                @Html.LabelFor(x=> x.Domicilio)
+                @Html.TextBoxFor(model => model.Domicilio, new {@class="form-control"})
+            </div>
+            <div class="form-group col-4">
+                @Html.LabelFor(x=> x.Email)
+                @Html.TextBoxFor(model => model.Email, new {@class="form-control"})
+            </div>
+
+               @* <div class="form-group col-4">
+                @Html.LabelFor(x=> x.IdLocalidad)
+                @Html.TextBoxFor(model => model.IdLocalidad, new {@class="form-control"})
+            </div> *@
+
+            <div class=" form-group align-items-end">
+                <button class="btn-primary" type="submit">Guardar</button>
+            </div>
+        </div>
+    </div>
+}

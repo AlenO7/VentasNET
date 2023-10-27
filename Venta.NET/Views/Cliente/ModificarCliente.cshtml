@@ -1,0 +1,37 @@
+﻿@using VentasNet.Infra.DTO.Request
+@model ClienteReq //traigo el objeto CLIENTE con el cual voy a trabajar
+
+<h2>Modificar Cliente</h2>
+
+
+@using (Html.BeginForm("Edit", "Cliente", FormMethod.Post))
+{
+    <div class="container">
+      
+            <div class="form-group col-4 ">
+                @Html.LabelFor(x=> x.RazonSocial)
+                @Html.TextBoxFor(model => model.RazonSocial, new {@class="form-control"})
+            </div>
+            <div class="form-group col-4">
+                @Html.LabelFor(x=> x.Cuit)
+                @Html.TextBoxFor(model => model.Cuit, new {@class="form-control"})
+            </div>
+            <div class="form-group col-4">
+                @Html.LabelFor(x=> x.Domicilio)
+                @Html.TextBoxFor(model => model.Domicilio, new {@class="form-control"})
+            </div>
+            <div class="form-group col-4">
+                @Html.LabelFor(x=> x.Email)
+                @Html.TextBoxFor(model => model.Email, new {@class="form-control"})
+            </div>
+
+            @*  <div class="form-group col-4">
+        @Html.LabelFor(x=> x.IdProvincia)
+        @Html.TextBoxFor(model => model.IdProvincia, new {@class="form-control"})
+        </div><br> *@
+            <div class=" form-group align-items-end">
+                <button class="btn-primary" type="submit">Actualizar</button>
+            </div>
+       
+    </div>
+}

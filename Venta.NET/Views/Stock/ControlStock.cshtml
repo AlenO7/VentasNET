@@ -1,0 +1,60 @@
+﻿@model StockReq
+
+
+<h2>Control de Stock</h2>
+
+
+
+<table class="table table-dark table-hover">
+
+
+    <thead>
+        <tr>
+         
+
+            <th>@Html.DisplayNameFor(model => model.IdProducto)</th>
+            <th>@Html.DisplayNameFor(model => model.CantIngreso)</th>
+            <th>@Html.DisplayNameFor(model => model.CantIngreso)</th>
+            <th>@Html.DisplayNameFor(model => model.FechaEgreso)</th>
+            <th>@Html.DisplayNameFor(model => model.IdComprobante)</th>
+            <th>@Html.DisplayNameFor(model => model.IdUsuario)</th>
+            <th>@Html.DisplayNameFor(model => model.FechaMovimiento)</th>
+
+            <th>@Html.Label("Acciones")</th>
+        </tr>
+    </thead>
+
+    @{
+       
+        if (ViewBag.Stock != null)
+        {
+            foreach (StockReq stock in ViewBag.Stock)
+            {
+                <tr>
+
+                    <td>@stock.IdProducto</td>
+                    <td>@stock.CantIngreso</td>
+                    <td>@stock.FechaIngreso</td>
+                    <td>@stock.CantEgreso</td>
+                    <td>@stock.FechaEgreso</td>
+                    <td>@stock.IdComprobante</td>
+                    <td>@stock.IdUsuario</td>
+                    <td>@stock.FechaMovimiento</td>
+
+                    <td>
+                        <!-- NOMBRE DEL BOTON/METODO DONDE APUNTA-->
+                        @Html.ActionLink("Editar", "ModificarStock","Stock",  stock , new{ @class="btn btn-primary" })
+
+                        @Html.ActionLink("Borrar", "Delete", "Stock" , stock ,  new{ @class="btn btn-danger" })
+                    </td>
+                </tr>
+
+            }
+
+        }
+
+
+    }
+
+</table>
+
