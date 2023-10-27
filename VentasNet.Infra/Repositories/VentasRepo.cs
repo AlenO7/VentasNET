@@ -22,8 +22,8 @@ namespace VentasNet.Infra.Repositories
 
         public int? GetUltimoComprobante (string tipoFactura)
         {
-            int? nroCbte;
-            var comprobante = _context.VwComprobante.Where(x => x.NombreCorto = tipoFactura).FirstOrDefault();
+            int? nroCbte = null;
+            var comprobante = _context.VWComprobante.Where(x => x.NombreCorto == tipoFactura).FirstOrDefault();
 
             if (comprobante != null)
             {
@@ -35,8 +35,8 @@ namespace VentasNet.Infra.Repositories
 
         public int? GetProximoComprobante(string tipoFactura)
         {
-            int? nroCbte;
-            var comprobante = _context.VwComprobante.Where(x => x.NombreCorto = tipoFactura).FirstOrDefault();
+            int? nroCbte = null;
+            var comprobante = _context.VWComprobante.Where(x => x.NombreCorto == tipoFactura).FirstOrDefault();
 
             if (comprobante != null)
             {
@@ -48,8 +48,8 @@ namespace VentasNet.Infra.Repositories
 
         public int? GetSucursal(string tipoFactura)
         {
-            int? nroCbte;
-            var comprobante = _context.VwComprobante.Where(x => x.NombreCorto = tipoFactura).FirstOrDefault();
+            int? nroCbte = null;
+            var comprobante = _context.VWComprobante.Where(x => x.NombreCorto == tipoFactura).FirstOrDefault();
 
             if (comprobante != null)
             {
