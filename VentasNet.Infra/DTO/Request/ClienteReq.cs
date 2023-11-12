@@ -10,12 +10,8 @@
         public DateTime? FechaBaja { get; set; }
         public bool Estado { get; set; }
         public string Email { get; set; }
-      
-        
-        public int? IdPais { get; set; }
-
-        public int? IdProvincia { get; set; }
-
-        public int? IdLocalidad { get; set; }
+        public string? Pais { get; set; }
+        public string? Provincia { get; set; }
+        public string? Localidad { get; set; }
     }
 }

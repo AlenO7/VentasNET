@@ -26,7 +26,7 @@ namespace VentasNet.Infra.Repositories
         public ClienteResponse AddCliente(ClienteReq objCliente)
         {
             
-            ModelosClientePais modeloCliPais = new ModelosClientePais();
+           
 
             ClienteResponse clienteResponse = new ClienteResponse();
             //llamo al metodo "GetClienteCuit" y le envio un parametro para que busqie si existe un cliente con ese cuit.
@@ -41,7 +41,9 @@ namespace VentasNet.Infra.Repositories
                     try
                     {
                         var clienteNew = MapeoClienteNuevo(objCliente);
+                        //var nombrePais = GetNombrePais(clienteNew);
 
+                        //clienteNew.NombrePais = nombrePais;
                         clienteNew.Estado = true;
                         clienteNew.FechaAlta = DateTime.Now.Date;
 
@@ -130,6 +132,8 @@ namespace VentasNet.Infra.Repositories
 
             var lista = _context.Cliente.Where(x => x.Estado == true).ToList();
 
+          
+
             foreach (var item in lista)
             {
                 ClienteReq clienteReq = new ClienteReq();
@@ -139,15 +143,18 @@ namespace VentasNet.Infra.Repositories
                 clienteReq.Cuit = item.Cuit;
                 clienteReq.Email = item.Email;
                 clienteReq.Domicilio = item.Domicilio;
-                //clienteReq.IdProvincia = item.IdProvincia;
-                //clienteReq.IdPais = item.IdPais;
+                clienteReq.Provincia = item.Provincia;
+                clienteReq.Pais = item.Pais;
+                clienteReq.Localidad = item.Localidad;
                 clienteReq.Estado = item.Estado.Value; 
                 //clienteReq.FechaAlta = item.FechaAlta;
                 clienteReq.FechaBaja = item.FechaBaja;
+             
+               
 
                 listadoClientes.Add(clienteReq);
             }
-
+            
             return listadoClientes;
         }
 
@@ -167,9 +174,10 @@ namespace VentasNet.Infra.Repositories
                 Cuit = objCliente.Cuit,
                 Domicilio = objCliente.Domicilio,
                 Email = objCliente.Email,
-                IdLocalidad = objCliente.IdLocalidad,
-                IdProvincia = objCliente.IdProvincia,   
-                IdPais = objCliente.IdPais
+                Localidad = objCliente.Localidad,
+                Provincia = objCliente.Provincia,   
+                Pais = objCliente.Pais
+                
 
             };
 
@@ -182,6 +190,9 @@ namespace VentasNet.Infra.Repositories
             existeCliente.Cuit = obj.Cuit != null ? obj.Cuit : existeCliente.Cuit;
             existeCliente.Domicilio = obj.Domicilio != null ? obj.Domicilio : existeCliente.Domicilio;
             existeCliente.Email = obj.Email != null ? obj.Email : existeCliente.Email;
+            existeCliente.Pais = obj.Pais;
+            existeCliente.Provincia = obj.Provincia;
+            existeCliente.Localidad = obj.Localidad;
 
 
 
@@ -189,26 +200,43 @@ namespace VentasNet.Infra.Repositories
             return existeCliente;
         }
 
-        public List<PaisReq> GetPais() //este metodo busca los paises cargado en la BD CON ID MAYOR A CERO,
-                                       //LUEGO CREA UNA LISTA DE PAISES
-        {
-            List<PaisReq> listadoPaises = new List<PaisReq> ();
+        //public List<PaisReq> GetPaises() 
+        //{
+        //    List<PaisReq> listadoPaises = new List<PaisReq> ();
 
-            var listaPaises = _context.Pais.Where(p => p.IdPais > 0).ToList();
+        //    var listaPaises = _context.Pais.ToList();
 
-            foreach (var item in listaPaises)
-            {
-                PaisReq paisReq = new PaisReq();
+        //    foreach (var item in listaPaises)
+        //    {
+        //        PaisReq paisReq = new PaisReq();
 
-                paisReq.IdPais = item.IdPais;
-                paisReq.Nombre = item.Nombre;
+        //        paisReq.IdPais = item.IdPais;
+        //        paisReq.Nombre = item.Nombre;
 
-                listadoPaises.Add(paisReq);
-            }
+        //        listadoPaises.Add(paisReq);
+        //    }
 
 
-            return listadoPaises;
-        }
+        //    return listadoPaises;
+        //}
+
+        //public List<Provincia> GetProvincias() 
+        //{
+
+        //    var listaProvincias = _context.Provincia.ToList();
+
+        //    return listaProvincias;
+        //}
+       
+        //public string GetNombrePais(Cliente clienteNew)
+        //{
+        //    var pais = _context.Pais.Where(x => x.IdPais == clienteNew.IdPais).FirstOrDefault();
+
+        //    string nombrePais = pais.Nombre;
+
+        //    return nombrePais;
+        //}
+
 
     }
 }

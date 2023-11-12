@@ -1,0 +1,48 @@
+﻿@model DetalleVentaReq;
+
+<table class="table">
+
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Codigo)</th>
+            <th>@Html.DisplayNameFor(model => model.Nombre)</th>
+            <th>@Html.DisplayNameFor(model => model.Cantidad)</th>
+            <th>@Html.DisplayNameFor(model => model.Precio)</th>
+            <th><label>Monto</label></th>
+            <th><label> Total Venta</label></th>
+        </tr>
+    </thead>
+
+
+    @{
+        if ((ViewBag.DetallesVenta != null))
+        {
+            
+            
+
+            foreach (var detallesVenta in ViewBag.DetallesVenta)
+            @*cliente va a tener todos los datos de ese cliente en esa vuelta *@
+            {
+                
+
+                @*Le debo decir 1que en cada celda me agregue un dato*@
+                <tr>
+                    <td>@detallesVenta.Codigo</td>
+                    <td>@detallesVenta.Nombre</td>
+                    <td>@detallesVenta.Cantidad</td>
+                    <td>$@detallesVenta.Precio</td>
+                    <td>$@detallesVenta.TotalProducto</td>
+                    <td>$@detallesVenta.TotalProducto </td>
+                    
+
+
+                </tr>
+
+            }
+
+        }
+    }
+
+
+
+</table>

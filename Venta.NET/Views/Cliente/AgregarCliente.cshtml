@@ -1,14 +1,17 @@
 ﻿
+@using VentasNet.Entity.Models;
 @using VentasNet.Infra.DTO.Request
 @model ClienteReq
 
-
+@{
+    
+}
 
 
 <h2>Agregar Cliente</h2>
 
 
-@using (Html.BeginForm("AgregarCliente", "Cliente", FormMethod.Post))
+@using (Html.BeginForm("AgregarCliente", "Cliente", FormMethod.Post , new {@Id = "clienteForm"}))
 {
     <div class="container">       
        <div class="panel-body">
@@ -32,15 +35,64 @@
                 @Html.LabelFor(x=> x.Email)
                 @Html.TextBoxFor(model => model.Email, new {@class="form-control"})
             </div>
-
-               @* <div class="form-group col-4">
-                @Html.LabelFor(x=> x.IdLocalidad)
-                @Html.TextBoxFor(model => model.IdLocalidad, new {@class="form-control"})
+            <div class="form-group col-4">
+                @Html.LabelFor(x=> x.Pais)
+                @Html.TextBoxFor(model => model.Pais, new {@class="form-control"})
+            </div><div class="form-group col-4">
+                @Html.LabelFor(x=> x.Provincia)
+                @Html.TextBoxFor(model => model.Provincia, new {@class="form-control"})
+            </div><div class="form-group col-4">
+                @Html.LabelFor(x=> x.Localidad)
+                @Html.TextBoxFor(model => model.Localidad, new {@class="form-control"})
+            </div>
+            <br>
+            
+           @*  <div>
+                @Html.DropDownListFor(x => x.IdPais, new SelectList(ViewBag.Paises, "IdPais", "Nombre"),"Seleccionar pais" , new {@class="form-control", @Id = "cbPais"} )
             </div> *@
-
+         @*     <div>
+                @Html.DropDownListFor(x => x.IdProvincia, new SelectList(ViewBag.Provincias, "IdProvinca", "Nombre"),"Seleccionar provincia" , new {@class="form-control", @Id = "cbProvincia"} )
+            </div>  *@
             <div class=" form-group align-items-end">
                 <button class="btn-primary" type="submit">Guardar</button>
             </div>
         </div>
     </div>
+
+
 }
+@* <script>
+
+    let paisValue = document.querySelector("#cbPais")
+    let seleccionPais = 0;
+    paisValue.addEventListener("change", ()=> {
+
+        seleccionPais = paisValue.value;
+
+        console.log(seleccionPais);
+
+        // fetch("Url.Content("~/Cliente/GetProvincias")" + "?Id" + seleccionPais).
+        //     then(response => response.json())
+
+        let listaProvincias = @Html.Raw(Json.Serialize(ViewBag.Provincias));
+        console.log(listaProvincias);
+
+        listaProvincias.forEach(objeto => {
+            if(objeto.idPais == seleccionPais){
+                console.log(objeto.nombre);
+            }
+            
+        })
+
+
+    });
+    
+
+</script> *@
+   @*  @{
+    List<Provincia> listaProvincias = ViewBag.Provincias;
+    listaProvincias = listaProvincias.Where(x => x.IdPais == Convert.ToInt32( seleccionPais) ).ToList();
+
+    } *@
+    
+

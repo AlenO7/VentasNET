@@ -1,0 +1,56 @@
+﻿@model DetalleVentaReq
+
+@using (Html.BeginForm("BuscarProducto", "Venta", FormMethod.Post))
+{
+    <div class="row align-items-end">
+        <input id="txtIdProducto" type="hidden" value="0" />
+
+
+        <div class="col-sm-3">
+            <div class="form-group mb-0">
+                <label for="txtproductocodigo" class="col-form-label col-form-label-sm">Codigo: <span class="required">*</span></label>
+                @Html.TextBoxFor(model => model.Codigo, new {@class="form-control"})
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="form-group mb-0">
+                <label for="txtproductonombre" class="col-form-label col-form-label-sm">Nombre:</label>
+                @Html.TextBoxFor(model => model.Nombre, new {@class="form-control", @readonly="readonly"})
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group mb-0">
+                <label for="txtproductodescripcion" class="col-form-label col-form-label-sm">Descripcion:</label>
+                @Html.TextBoxFor(model => model.Descripcion, new {@class="form-control", @readonly="readonly"})
+            </div>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-sm-3">
+            <div class="form-group mb-0">
+                <label for="txtproductoprecio" class="col-form-label col-form-label-sm">Precio:</label>
+                @Html.TextBoxFor(model => model.Precio, new {@class="form-control", @readonly="readonly"})
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="form-group mb-0">
+                <label for="txtproductocantidad" class="col-form-label col-form-label-sm">Cantidad: <span class="required">*</span></label>
+                @Html.TextBoxFor(model => model.Cantidad, new {@class="form-control"})
+            </div>
+        </div> <br>
+        <div class="col-sm-2">
+            <div class="form-group mb-0">
+                <button type="submit" name="submitButton" value="Buscar" class="btn btn-primary btn-block">Buscar</button>
+            </div> <br>
+        </div>
+
+        <div class="col-sm-1">
+            <div class="form-group mb-0">
+                <button type="submit" name="submitButton" value="Agregar" class="btn btn-success btn-block">Agregar</button>
+            </div>
+        </div>
+    </div>
+    var detallesVenta = new DetalleVentaReq();
+}
+

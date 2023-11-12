@@ -49,7 +49,7 @@ namespace VentasNet.Infra.Repositories
                     }
                     catch (Exception ex)
                     {
-                        stockResponse.Mensaje = "Error al agregar Cliente.";
+                        stockResponse.Mensaje = "Error al agrega.";
                         stockResponse.Guardar = false;
                     }
 
@@ -143,8 +143,6 @@ namespace VentasNet.Infra.Repositories
             return listadoStock;
         }
 
-
-
         public Stock MapeoStockUp(StockReq stock, Stock existeStock)
         {
             throw new NotImplementedException();
@@ -169,7 +167,13 @@ namespace VentasNet.Infra.Repositories
 
         public Stock GetStockIdProducto(int idProducto)
         {
-            throw new NotImplementedException();
+
+            var stock = _context.Stock.Where(x => x.IdProducto == idProducto ).FirstOrDefault();
+
+            return stock;
         }
+
+
+        
     }
 }

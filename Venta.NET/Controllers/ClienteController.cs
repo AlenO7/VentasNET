@@ -1,6 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 using NuGet.DependencyResolver;
+
+using VentasNet.Entity.Models;
 using VentasNet.Infra.DTO.Request;
 using VentasNet.Infra.DTO.Response;
 using VentasNet.Infra.Interfaces;
@@ -15,7 +20,7 @@ namespace Venta.NET.Controllers
 
        private readonly IClienteRepo _clienteRepo;
 
-        public ClienteController (IClienteRepo clienteRepo) //inyeccion de independencia
+        public ClienteController (IClienteRepo clienteRepo) //inyeccion de dependencia
         {
             _clienteRepo = clienteRepo;
         }
@@ -27,11 +32,14 @@ namespace Venta.NET.Controllers
 
         public IActionResult AgregarCliente(ClienteReq cli)
         {
-            //PaisReq objPais = new PaisReq();
-            //List<PaisReq> listaPaises = clienteRepo.GetPais();
-            //ViewBag.Paises = new SelectList(listaPaises, "Id", "Nombre");
+            
+           //ViewBag.Paises = _clienteRepo.GetPaises();
 
-            var clienteResponse = _clienteRepo.AddCliente( cli);
+            //ViewBag.Provincias = _clienteRepo.GetProvincias();
+
+           
+
+            var clienteResponse = _clienteRepo.AddCliente(cli);
             if (clienteResponse.Guardar)
             {
                  return RedirectToAction("Listado");
@@ -67,11 +75,23 @@ namespace Venta.NET.Controllers
 
         public IActionResult Listado(ClienteReq cli)
         {
+           
             ViewBag.Cliente = _clienteRepo.GetClientes();
+            
+
+
+
             return View();
         }
 
-       
+       //public JsonResult GetProvincias(int Id)
+       // {
+
+       //     var listaProvincias = _clienteRepo.GetProvincias();
+
+       //     return Json(listaProvincias, System.Web.Mvc.JsonRequestBehavior.AllowGet);
+
+       // }
 
        
 

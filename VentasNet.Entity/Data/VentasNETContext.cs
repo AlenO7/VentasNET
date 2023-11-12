@@ -30,6 +30,7 @@ namespace VentasNet.Entity.Data
         public virtual DbSet<Stock> Stock { get; set; }
         public virtual DbSet<Usuario> Usuario { get; set; }
         public virtual DbSet<Ventas> Ventas { get; set; }
+        public virtual DbSet<Vwcomprobante> Vwcomprobante { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -14,11 +14,11 @@
 
         public string Domicilio { get; set; }
 
-        public int? IdLocalidad { get; set; }
+        public string Localidad { get; set; }
 
-        public int? IdProvincia { get; set; }
+        public string? Provincia { get; set; }
 
-        public int? IdPais { get; set; }
+        public string? Pais { get; set; }
 
         public DateTime? FechaAlta { get; set; }
 

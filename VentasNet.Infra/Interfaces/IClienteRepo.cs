@@ -16,6 +16,8 @@ namespace VentasNet.Infra.Interfaces
         public ClienteResponse Delete(ClienteReq objCliente);
         public List<ClienteReq> GetClientes();
         public Cliente GetClienteCuit(string cuit);
-        public List<PaisReq> GetPais();
+        //public List<PaisReq> GetPaises();
+        //public List<Provincia> GetProvincias();
+        //public string GetNombrePais(Cliente clienteNew);
     }
 }

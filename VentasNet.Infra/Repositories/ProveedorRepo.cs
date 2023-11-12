@@ -102,7 +102,10 @@ namespace VentasNet.Infra.Repositories
                 proveedoreReq.Email = item.Email;
                 proveedoreReq.Telefono = item.Telefono;
                 proveedoreReq.Domicilio = item.Domicilio;
-                proveedoreReq.Estado = item.Estado.Value;
+                proveedoreReq.Pais = item.Pais;
+                proveedoreReq.Provincia = item.Provincia;
+                proveedoreReq.Localidad = item.Localidad;
+                proveedoreReq.Estado = item.Estado;
                 proveedoreReq.FechaBaja = item.FechaBaja;
 
                 listadoProveedores.Add(proveedoreReq);
@@ -149,9 +152,9 @@ namespace VentasNet.Infra.Repositories
                 Email = proveedor.Email,
                 Telefono = proveedor.Telefono,
                 Domicilio = proveedor.Domicilio,
-                IdLocalidad = proveedor.IdLocalidad,
-                IdProvincia = proveedor.IdProvincia,
-                IdPais = proveedor.IdPais
+                Localidad = proveedor.Localidad,
+                Provincia = proveedor.Provincia,
+                Pais = proveedor.Pais
 
             };
 
@@ -165,7 +168,9 @@ namespace VentasNet.Infra.Repositories
             existeProveedor.Domicilio = proveedor.Domicilio != null ? proveedor.Domicilio : existeProveedor.Domicilio;
             existeProveedor.Email = proveedor.Email != null ? proveedor.Email : existeProveedor.Email;
             existeProveedor.Telefono = proveedor.Telefono != null ? proveedor.Telefono : existeProveedor.Telefono;
-
+            existeProveedor.Pais = proveedor.Pais;
+            existeProveedor.Provincia = proveedor.Provincia;
+            existeProveedor.Localidad = proveedor.Localidad;
 
 
 
