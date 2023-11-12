@@ -21,6 +21,7 @@ builder.Services.AddScoped<IProductoRepo, ProductoRepo>();
 builder.Services.AddScoped<IUsuarioRepo, UsuarioRepo>();
 builder.Services.AddScoped<IMetodoPagoRepo, MetodoPagoRepo>();
 builder.Services.AddScoped<IStockRepo, StockRepo>();
+builder.Services.AddScoped<IVentaRepo, VentaRepo>();
 builder.Services.AddScoped<IClienteService, ClienteService>();
 
 

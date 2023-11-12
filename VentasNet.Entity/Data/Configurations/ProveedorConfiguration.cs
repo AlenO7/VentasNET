@@ -15,7 +15,12 @@ namespace VentasNet.Entity.Data.Configurations
         {
             entity.HasKey(e => e.IdProveedor);
 
+            entity.Property(e => e.Apellido)
+                .HasMaxLength(50)
+                .IsUnicode(false);
+
             entity.Property(e => e.Cuit)
+                .IsRequired()
                 .HasMaxLength(50)
                 .IsUnicode(false);
 
@@ -24,6 +29,7 @@ namespace VentasNet.Entity.Data.Configurations
                 .IsUnicode(false);
 
             entity.Property(e => e.Email)
+                .IsRequired()
                 .HasMaxLength(50)
                 .IsUnicode(false);
 
@@ -35,11 +41,29 @@ namespace VentasNet.Entity.Data.Configurations
                 .HasColumnType("date")
                 .HasColumnName("Fecha_baja");
 
+            entity.Property(e => e.Localidad)
+                .HasMaxLength(50)
+                .IsUnicode(false);
+
+            entity.Property(e => e.Nombre)
+                .HasMaxLength(50)
+                .IsUnicode(false);
+
+            entity.Property(e => e.Pais)
+                .HasMaxLength(50)
+                .IsUnicode(false);
+
+            entity.Property(e => e.Provincia)
+                .HasMaxLength(50)
+                .IsUnicode(false);
+
             entity.Property(e => e.RazonSocial)
+                .IsRequired()
                 .HasMaxLength(50)
                 .IsUnicode(false);
 
             entity.Property(e => e.Telefono)
+                .IsRequired()
                 .HasMaxLength(50)
                 .IsUnicode(false);
 

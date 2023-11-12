@@ -13,11 +13,13 @@ namespace VentasNet.Entity.Models
         public string Email { get; set; }
         public string Telefono { get; set; }
         public string Domicilio { get; set; }
-        public int? IdLocalidad { get; set; }
-        public int? IdProvincia { get; set; }
-        public int? IdPais { get; set; }
+        public string Localidad { get; set; }
+        public string Provincia { get; set; }
+        public string Pais { get; set; }
         public DateTime? FechaAlta { get; set; }
         public DateTime? FechaBaja { get; set; }
-        public bool? Estado { get; set; }
+        public bool Estado { get; set; }
+        public string Nombre { get; set; }
+        public string Apellido { get; set; }
     }
 }

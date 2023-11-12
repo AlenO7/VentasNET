@@ -15,24 +15,32 @@
             <th>@Html.DisplayNameFor(model => model.Cuit)</th>
             <th>@Html.DisplayNameFor(model => model.Domicilio)</th>
             <th>@Html.DisplayNameFor(model => model.Email)</th>
+            <th>@Html.DisplayNameFor(model => model.Pais)</th>
+            <th>@Html.DisplayNameFor(model => model.Provincia)</th>
+            <th>@Html.DisplayNameFor(model => model.Localidad)</th>
+           
             
             <th>@Html.Label("Acciones")</th>
         </tr>
     </thead>
 
-    @{ //Aca escribo codigo c# 
+    @{  
 
         //recorro la lista de clientes usando el foreach
-        if(ViewBag.Cliente != null)//VERIFICO QUE NO VENGA NULO
+        if(ViewBag.Cliente != null)
         {
             foreach (ClienteReq cliente in ViewBag.Cliente)
             {
-                <tr>
-                     
+                <tr>    
                     <td>@cliente.RazonSocial</td>
                     <td>@cliente.Cuit</td>
                     <td>@cliente.Domicilio</td>
                     <td>@cliente.Email</td>
+                    <td>@cliente.Pais</td>
+                    <td>@cliente.Provincia</td>
+                    <td>@cliente.Localidad</td>
+                   
+                    
                     
                     <td>
                              <!-- NOMBRE DEL BOTON/METODO DONDE APUNTA-->
@@ -43,10 +51,11 @@
                 </tr>
 
             }
-            
+
         }
-      
 
     }
 
 </table>
+
+ 

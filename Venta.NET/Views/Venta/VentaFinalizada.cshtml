@@ -1,0 +1,58 @@
+﻿@model VentaReq
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card border-info">
+            <div class="card-header p-2 bg-info text-white">
+                Venta Finalizada
+                
+            </div>
+            <div class="card-body p-2 card-venta">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="input-group input-group-sm mb-2">
+                            
+                            @* aca va algo *@
+                            
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="input-group input-group-sm mb-2">
+                            @* aca va algo *@
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-2">
+                    <div class="col-sm-6">
+                        <div class="card border-info">
+                            <div class="card-body p-2">
+                                <h6 class="card-title mb-1 text-info">Detalle cliente</h6>
+                                <div class="row">
+                                    <label for="" class="col-form-label col-form-label-sm"> Razon Social: @Model.cliente.RazonSocial  </label>
+                                   
+                                </div>
+                                <div class="row">
+                                    <label for="" class="col-form-label col-form-label-sm">CUIT:@Model.cliente.Cuit  </label>
+                                    
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12"><h6 class="text-info"> Monto abonado:  $ @Model.detalles.TotalProducto  </h6></div>
+                                    
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                <hr />
+                
+                <button id="" class="btn btn-warning btn-sm float-right">
+                    <i class="fa fa-print" aria-hidden="true"></i> Imprimir Comprobante
+                </button>
+                
+            </div>
+
+        </div>
+    </div>
+</div>

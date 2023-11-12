@@ -1,0 +1,43 @@
+﻿@using VentasNet.Entity.Models;
+
+@model Cliente
+
+
+@using (Html.BeginForm("GetClienteCuit", "Venta", FormMethod.Post))
+{
+
+    <div class="row align-items-end">
+        <div class="col-sm-4">
+            <div class="form-group mb-0">
+                <label for="" class="col-form-label col-form-label-sm">Numero Cuit: <span class="required">*</span> </label>
+                @Html.TextBoxFor(model => model.Cuit, new {@class="form-control"})
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group mb-0">
+                <label for="txtRazonSocialProveedor" class="col-form-label col-form-label-sm">Nombres: <span class="required">*</span></label>
+                @Html.TextBoxFor(model => model.RazonSocial, new {@class="form-control", @readonly="readonly"})
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group mb-0">
+                    <label for="txtRazonSocialProveedor" class="col-form-label col-form-label-sm">Domicilio:</label>
+                    @Html.TextBoxFor(model => model.Domicilio, new {@class="form-control", @readonly="readonly"})
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group mb-0">
+                    <label for="txtRazonSocialProveedor" class="col-form-label col-form-label-sm">Email:</label>
+                    @Html.TextBoxFor(model => model.Email, new {@class="form-control", @readonly="readonly"})
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-2">
+        <div class="form-group mb-0">
+            <button type="submit" class="btn btn-sm btn-success btn-block"><i class="fa fa-plus" aria-hidden="true"></i>  Buscar</button>
+        </div> <br>
+    </div>
+}

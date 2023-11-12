@@ -21,7 +21,6 @@ namespace VentasNet.Entity.Data.Configurations
                 .IsUnicode(false);
 
             entity.Property(e => e.FechaMovimiento)
-                .IsRequired()
                 .IsRowVersion()
                 .IsConcurrencyToken();
 

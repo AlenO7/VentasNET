@@ -54,6 +54,10 @@
       {
          "Name": "[dbo].[Ventas]",
          "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[VWComprobante]",
+         "ObjectType": 3
       }
    ],
    "UiHint": "desktop-l6q5682.VentasNet.dbo",

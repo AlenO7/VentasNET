@@ -28,7 +28,7 @@ namespace Venta.Net.Controllers
 
             if (stockResponse.Guardar)
             {
-                return RedirectToAction("Listado");
+                return RedirectToAction("ListaStock");
             }
 
             return View();

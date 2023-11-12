@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VentasNet.Entity.Models;
 
 namespace VentasNet.Infra.DTO.Request
 {
-    public class ModelosClientePais : ClienteReq
+    public class ProductoVenta
     {
-        public ClienteReq Cliente { get; set; }
+        public Producto producto { get; set; }
 
-        public PaisReq Pais{ get; set; }
+        public List<Producto> listaProductos { get; set; }
     }
 }

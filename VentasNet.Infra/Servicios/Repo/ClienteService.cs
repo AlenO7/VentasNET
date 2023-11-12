@@ -32,14 +32,10 @@ namespace VentasNet.Infra.Servicios.Repo
 
         public void ModificarCliente(Cliente cliente)
         {
-            var cli = _context.Cliente.Where(x => x.IdCliente == cliente.IdCliente).FirstOrDefault();
-            //mapeo con automaper  
 
             if (cliente != null)
             {
-                cliente.Estado = false;
-                cliente.FechaBaja = DateTime.Now;
-                _context.Add(cliente);
+                _context.Update(cliente);
                 _context.SaveChanges();
             }
         }
